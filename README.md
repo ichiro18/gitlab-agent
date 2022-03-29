@@ -37,3 +37,7 @@ helm upgrade --install . gitlab-agent \
     --set config.kasAddress='wss://kas.gitlab.example.com' \
     --set config.token='YOUR.AGENT.TOKEN'
 ```
+
+## Third-party trademarks
+
+[Kubernetes](https://kubernetes.io/) is a registered trademark of The Linux Foundation.
