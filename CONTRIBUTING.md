@@ -18,7 +18,3 @@ _This notice should stay as the first item in the CONTRIBUTING.md file._
 ## Code of Conduct
 
 Please see the [Code of Conduct](https://about.gitlab.com/contributing/code-of-conduct/) that is applicable for this project.
-
-## How to contribute
-
-See the [development guide](doc/developing.md).
