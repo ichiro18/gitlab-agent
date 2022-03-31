@@ -38,6 +38,18 @@ helm upgrade --install . gitlab-agent \
     --set config.token='YOUR.AGENT.TOKEN'
 ```
 
+## Development
+
+See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for our contributor license agreement and code of conduct.
+
+### Publishing a new release
+
+1. When applicable: Update `appVersion` in [`Chart.yaml`](./Chart.yaml) with the latest [upstream release](https://gitlab.com/gitlab-org/cluster-integration/gitlab-agent/-/releases).
+1. When changing any Helm chart resources (such as anything in [`templates`](./templates) or [`Chart.yaml`](./Chart.yaml)): Update `version` in [`Chart.yaml`](./Chart.yaml).
+1. For a normal release: Create a tag with the `version` from `Chart.yaml` under https://gitlab.com/gitlab-org/charts/gitlab-agent
+1. For a security release: Create a tag with the `version` from `Chart.yaml` under https://gitlab.com/gitlab-org/security/charts/gitlab-agent
+   * **Note:** Security releases should be made in coordination with release managers. The GitLab agent has not had a security release yet, but see [the GitLab's security development workflow](https://gitlab.com/gitlab-org/release/docs/blob/master/general/security/developer.md) for the general process.
+
 ## Third-party trademarks
 
 [Kubernetes](https://kubernetes.io/) is a registered trademark of The Linux Foundation.
