@@ -12,7 +12,7 @@ For the server-side component (KAS), see the official [GitLab Helm chart](https:
 ```shell
 helm repo add gitlab https://charts.gitlab.io
 helm repo update
-helm install gitlab/gitlab-agent gitlab-agent \
+helm upgrade --install gitlab-agent gitlab/gitlab-agent \
     --set config.kasAddress='wss://kas.gitlab.example.com' \
     --set config.token='YOUR.AGENT.TOKEN'
 ```
@@ -21,7 +21,7 @@ helm install gitlab/gitlab-agent gitlab-agent \
 
 ```shell
 helm repo update
-helm upgrade gitlab/agent gitlab-agent --reuse-values
+helm upgrade  gitlab-agent gitlab/gitlab-agent --reuse-values
 ```
 
 ### Customize
