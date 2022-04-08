@@ -33,8 +33,11 @@ spec:
           image: {{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           args:
-            - --token-file=/config/token
+            - --token-file=/etc/agentk/secrets/token
             - --kas-address={{ .Values.config.kasAddress }}
+            {{- if .Values.config.caCert }}
+            - --ca-cert-file=/etc/agentk/config/ca.crt
+            {{- end }}
           livenessProbe:
             httpGet:
               path: /liveness
@@ -59,12 +62,17 @@ spec:
                 fieldRef:
                   fieldPath: metadata.name
           volumeMounts:
-             - name: token-volume
-               mountPath: /config
+             - name: secret-volume
+               mountPath: /etc/agentk/secrets
+             - name: config-volume
+               mountPath: /etc/agentk/config
       volumes:
-        - name: token-volume
+        - name: secret-volume
           secret:
             secretName: {{ include "gitlab-agent.secretName" . }}
+        - name: config-volume
+          configMap:
+            name: {{ include "gitlab-agent.fullname" . }}
       {{- with .Values.affinity }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
