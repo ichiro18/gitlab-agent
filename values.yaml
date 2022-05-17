@@ -33,6 +33,10 @@ config:
   # secretName: "token"
   # caCert: "PEM certificate file to use to verify config.kasAddress. Useful if config.kasAddress is self-signed."
 
+extraEnv: []
+# Add additional environment settings to the pod. Can be useful in proxy
+# environments
+
 resources: {}
   # limits:
   #   cpu: 100m
