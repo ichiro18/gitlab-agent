@@ -33,7 +33,7 @@ See [`values.yaml`](./values.yaml).
 ``` shell
 git clone https://gitlab.com/gitlab-org/charts/gitlab-agent.git
 cd gitlab-agent
-helm upgrade --install . gitlab-agent \
+helm upgrade --install gitlab-agent . \
     --set config.kasAddress='wss://kas.gitlab.example.com' \
     --set config.token='YOUR.AGENT.TOKEN'
 ```
