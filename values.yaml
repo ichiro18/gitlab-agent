@@ -55,3 +55,6 @@ affinity: {}
 podLabels: {}
   # Example:
   # role: developer
+
+# Additional labels to be added to all created objects
+additionalLabels: {}
