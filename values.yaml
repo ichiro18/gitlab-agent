@@ -50,3 +50,8 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+# Labels to be added to each agent pod
+podLabels: {}
+  # Example:
+  # role: developer
