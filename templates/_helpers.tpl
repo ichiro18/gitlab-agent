@@ -65,6 +65,18 @@ Secret Name
 {{- end }}
 
 {{/*
+Observability TLS Secret Name
+*/}}
+{{- define "gitlab-agent.observabilitySecretName" -}}
+{{- $name := (((.Values.config.observability).tls).secret).name }}
+{{- if $name }}
+{{-   $name }}
+{{- else }}
+{{-   printf "%s-observability" (include "gitlab-agent.fullname" .) -}}
+{{- end }}
+{{- end }}
+
+{{/*
 Create the name of the service account to use
 */}}
 {{- define "gitlab-agent.serviceAccountName" -}}

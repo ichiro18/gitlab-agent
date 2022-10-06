@@ -41,6 +41,10 @@ spec:
             {{- if .Values.config.caCert }}
             - --ca-cert-file=/etc/agentk/config/ca.crt
             {{- end }}
+            {{- if ((.Values.config.observability).tls).enabled }}
+            - --observability-cert-file=/etc/agentk/observability-secrets/tls.crt
+            - --observability-key-file=/etc/agentk/observability-secrets/tls.key
+            {{- end }}
           livenessProbe:
             httpGet:
               path: /liveness
@@ -74,12 +78,21 @@ spec:
           volumeMounts:
              - name: secret-volume
                mountPath: /etc/agentk/secrets
+            {{- if ((.Values.config.observability).tls).enabled }}
+             - name: observability-secret-volume
+               mountPath: /etc/agentk/observability-secrets
+            {{- end }}
              - name: config-volume
                mountPath: /etc/agentk/config
       volumes:
         - name: secret-volume
           secret:
             secretName: {{ include "gitlab-agent.secretName" . }}
+        {{- if ((.Values.config.observability).tls).enabled }}
+        - name: observability-secret-volume
+          secret:
+            secretName: {{ include "gitlab-agent.observabilitySecretName" . }}
+        {{- end }}
         - name: config-volume
           configMap:
             name: {{ include "gitlab-agent.fullname" . }}
