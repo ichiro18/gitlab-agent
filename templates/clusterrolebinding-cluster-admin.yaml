@@ -13,4 +13,4 @@ subjects:
 - kind: ServiceAccount
   name: {{ include "gitlab-agent.serviceAccountName" . }}
   namespace: {{ .Release.Namespace | default "gitlab-agent" }}
-{{ end }}
+{{- end }}
