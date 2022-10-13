@@ -22,6 +22,17 @@ serviceAccount:
   # If not set and create is true, a name is generated using the fullname template
   # name: ""
 
+podSecurityContext: {}
+# fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+# runAsUser: 1000
+
 podAnnotations:
   prometheus.io/scrape: "true"
   prometheus.io/path: "/metrics"
