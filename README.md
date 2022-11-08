@@ -7,6 +7,10 @@ For the server-side component (KAS), see the official [GitLab Helm chart](https:
 
 ## Getting started
 
+### Prerequisites
+
+This chart requires Helm v3.6 or later.
+
 ### Install the latest stable release
 
 ```shell
