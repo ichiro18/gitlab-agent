@@ -49,6 +49,12 @@ spec:
             - --observability-cert-file=/etc/agentk/observability-secrets/tls.crt
             - --observability-key-file=/etc/agentk/observability-secrets/tls.key
             {{- end }}
+            {{- if .Values.config.headers }}
+            {{- range .Values.config.kasHeaders }}
+            - --kas-header
+            - {{ . | quote }}
+            {{- end }}
+            {{- end }}
           livenessProbe:
             httpGet:
               path: /liveness
