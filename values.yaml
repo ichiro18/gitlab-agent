@@ -39,6 +39,8 @@ podAnnotations:
 
 config:
   kasAddress: 'wss://kas.gitlab.com'
+  # kasHeaders:
+  #   - "Cookie: gitlab-canary"
   # token: "put your token here"
   # secretName: "token"
   # caCert: "PEM certificate file to use to verify config.kasAddress. Useful if config.kasAddress is self-signed."
