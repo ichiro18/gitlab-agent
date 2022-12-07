@@ -12,6 +12,8 @@ fullnameOverride: ""
 rbac:
   # Specifies whether RBAC resources should be created
   create: true
+  ## Set to a rolename to use existing role. Default is cluster-admin
+  # useExistingRole: somerolename
 
 serviceAccount:
   # Specifies whether a service account should be created
