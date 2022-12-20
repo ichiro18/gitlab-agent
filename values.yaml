@@ -8,6 +8,8 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+replicas: 1
+
 rbac:
   # Specifies whether RBAC resources should be created
   create: true
