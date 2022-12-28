@@ -49,7 +49,7 @@ spec:
             - --observability-cert-file=/etc/agentk/observability-secrets/tls.crt
             - --observability-key-file=/etc/agentk/observability-secrets/tls.key
             {{- end }}
-            {{- if .Values.config.headers }}
+            {{- if .Values.config.kasHeaders }}
             {{- range .Values.config.kasHeaders }}
             - --kas-header
             - {{ . | quote }}
