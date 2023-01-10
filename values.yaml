@@ -77,6 +77,8 @@ tolerations: []
 
 affinity: {}
 
+priorityClassName: ""
+
 ## list of hosts and IPs that will be injected into the pod's hosts file
 hostAliases: []
   # Example:
