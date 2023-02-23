@@ -58,6 +58,9 @@ spec:
             - {{ . | quote }}
             {{- end }}
             {{- end }}
+            {{- range .Values.extraArgs }}
+            - {{ . }}
+            {{- end }}
           livenessProbe:
             httpGet:
               path: /liveness
